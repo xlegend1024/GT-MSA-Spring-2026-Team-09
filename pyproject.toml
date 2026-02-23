@@ -34,6 +34,7 @@ dependencies = [
     "seaborn==0.13.2",
     "six==1.17.0",
     "soupsieve==2.8.3",
+    "statsmodels>=0.14.6",
     "tqdm==4.67.1",
     "typing-extensions==4.15.0",
     "tzdata==2025.3",
