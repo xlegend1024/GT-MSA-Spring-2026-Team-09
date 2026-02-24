@@ -533,7 +533,7 @@ class PolymarketFeatures:
                     "Direction": direction,
                     "Best Lag": best_lag,
                     "Min p": round(best_p, 4),
-                    "Significant (α=0.05)": "YES ***" if best_p < alpha else "no",
+                    "Significant (alpha=0.05)": "YES ***" if best_p < alpha else "no",
                 })
         return pd.DataFrame(rows)
 
