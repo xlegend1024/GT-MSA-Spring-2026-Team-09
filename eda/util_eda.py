@@ -1024,7 +1024,7 @@ class PolymarketPlots:
     ) -> None:
         """Plot lagged cross-correlation for multiple index series."""
         colors = ["steelblue", "crimson", "#1abc9c", "#f39c12", "#8e44ad"]
-        fig, ax = plt.subplots(figsize=(12, 6))
+        fig, ax = plt.subplots(figsize=(16, 11))
         for (name, values), color in zip(lag_corr_dict.items(), colors):
             ax.plot(list(lags), values, color=color, lw=1.5, label=name)
         ax.axvline(0, color="black", lw=0.8, ls="--")
