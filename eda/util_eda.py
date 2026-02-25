@@ -790,7 +790,7 @@ class PolymarketPlots:
         cdf_color:  str = "#2e86c1",
         save_path: Optional[Path] = None,
     ) -> None:
-        """Histogram-with-zone-coloring (left) + CDF (right) for any poly index."""
+        """Histogram-with-zone-coloring for any poly index."""
         _idx    = index_series.dropna()
         _mean   = _idx.mean()
         _median = _idx.median()
@@ -799,9 +799,8 @@ class PolymarketPlots:
         _pct_lo = (_idx < 0.2).mean() * 100
         _pct_hi = (_idx > 0.6).mean() * 100
 
-        fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+        fig, ax = plt.subplots(1, 1, figsize=(14, 5))
 
-        ax = axes[0]
         n, bins, patches = ax.hist(_idx, bins=60, edgecolor="white", linewidth=0.3,
                                    color=hist_color, alpha=0.85)
         for patch, left in zip(patches, bins[:-1]):
@@ -824,25 +823,6 @@ class PolymarketPlots:
                      fontsize=11, fontweight="bold")
         ax.legend(fontsize=9)
         ax.grid(axis="y", alpha=0.25)
-
-        ax2 = axes[1]
-        _sorted = _idx.sort_values().reset_index(drop=True)
-        _cdf    = (_sorted.index + 1) / len(_sorted)
-        ax2.plot(_sorted, _cdf, color=cdf_color, linewidth=2)
-        ax2.axvline(_mean,   color="#1a252f", linestyle="--", linewidth=1.2, label=f"Mean = {_mean:.3f}")
-        ax2.axhline(0.5,     color="#8e44ad", linestyle=":",  linewidth=1.0, alpha=0.7)
-        ax2.axvline(_median, color="#8e44ad", linestyle=":",  linewidth=1.2, label=f"Median = {_median:.3f}")
-        ax2.fill_betweenx(_cdf, 0, _sorted, where=(_sorted < 0.2), alpha=0.15,
-                          color="#27ae60", label=f"< 0.2  ({_pct_lo:.0f}%)")
-        ax2.fill_betweenx(_cdf, 0, _sorted, where=(_sorted > 0.6), alpha=0.15,
-                          color="#e74c3c", label=f"> 0.6  ({_pct_hi:.0f}%)")
-        ax2.set_xlabel(index_label, fontsize=12)
-        ax2.set_ylabel("Cumulative Proportion", fontsize=12)
-        ax2.set_title(f"CDF of {index_label}", fontsize=11, fontweight="bold")
-        ax2.legend(fontsize=9, loc="lower right")
-        ax2.grid(alpha=0.25)
-        ax2.set_xlim(0, 1)
-        ax2.set_ylim(0, 1)
 
         plt.suptitle(title, fontsize=13, fontweight="bold", y=1.02)
         plt.tight_layout()
@@ -1024,7 +1004,7 @@ class PolymarketPlots:
     ) -> None:
         """Plot lagged cross-correlation for multiple index series."""
         colors = ["steelblue", "crimson", "#1abc9c", "#f39c12", "#8e44ad"]
-        fig, ax = plt.subplots(figsize=(16, 11))
+        fig, ax = plt.subplots(figsize=(12, 5))
         for (name, values), color in zip(lag_corr_dict.items(), colors):
             ax.plot(list(lags), values, color=color, lw=1.5, label=name)
         ax.axvline(0, color="black", lw=0.8, ls="--")
