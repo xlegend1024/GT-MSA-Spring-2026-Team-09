@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import polars as pl
+import seaborn as sns
 from statsmodels.tsa.stattools import adfuller, grangercausalitytests
 
 
@@ -536,6 +537,178 @@ class PolymarketFeatures:
                     "Significant (alpha=0.05)": "YES ***" if best_p < alpha else "no",
                 })
         return pd.DataFrame(rows)
+
+    @staticmethod
+    def run_executive_polymarket_granger(
+        data_dir: Path,
+        btc_price_df: pd.DataFrame,
+        plots_dir: Path,
+        max_lag: int = 30,
+        alpha: float = 0.05,
+        verbose: bool = False,
+    ) -> Dict[str, object]:
+        """
+        Executive notebook helper:
+        - load 3 Polymarket index parquet files,
+        - run bidirectional Granger tests,
+        - render/save p-value heatmaps,
+        - build compact statistical + decision summary tables.
+        """
+        plots_dir = Path(plots_dir)
+        plots_dir.mkdir(parents=True, exist_ok=True)
+
+        def _join_index_with_btc(daily_agg: pd.DataFrame, source_index_col: str) -> pd.DataFrame:
+            df_idx = daily_agg.copy()
+
+            if "date" not in df_idx.columns:
+                idx_name = df_idx.index.name if df_idx.index.name is not None else "index"
+                df_idx = df_idx.reset_index().rename(columns={idx_name: "date"})
+            elif isinstance(df_idx.index, pd.DatetimeIndex):
+                df_idx = df_idx.reset_index(drop=True)
+
+            df_idx = df_idx.loc[:, ~df_idx.columns.duplicated(keep="first")].copy()
+            df_idx["date"] = pd.to_datetime(df_idx["date"], errors="coerce")
+            df_idx = df_idx.dropna(subset=["date"])
+
+            if source_index_col not in df_idx.columns:
+                raise KeyError(
+                    f"Expected index column '{source_index_col}' not found. Available: {list(df_idx.columns)}"
+                )
+
+            if source_index_col != "mean":
+                df_idx = df_idx.rename(columns={source_index_col: "mean"})
+
+            return df_idx.merge(btc_price_df, on="date", how="inner")
+
+        def _build_pval_matrix(granger_results: Dict[str, Dict[str, object]], key: str) -> pd.DataFrame:
+            frames = []
+            for name, payload in granger_results.items():
+                res = payload["result_df"]
+                s = res[["lag", key]].copy().rename(columns={key: name})
+                frames.append(s.set_index("lag"))
+            return pd.concat(frames, axis=1)
+
+        def _normalize_direction_label(label: str) -> str:
+            return str(label).replace("→", "->").strip()
+
+        def _usage_label(poly_to_btc: bool, btc_to_poly: bool) -> str:
+            if poly_to_btc and btc_to_poly:
+                return "Conditional secondary timing signal"
+            if (not poly_to_btc) and btc_to_poly:
+                return "Confirmation-only signal"
+            if poly_to_btc and (not btc_to_poly):
+                return "Early-warning candidate (needs validation)"
+            return "Do not use for timing"
+
+        df_crypto_idx = pd.read_parquet(Path(data_dir) / "polymarket_crypto_index_ts.parquet")
+        df_trump_idx = pd.read_parquet(Path(data_dir) / "trump_index_ts_interp.parquet")
+        df_usaffair_idx = pd.read_parquet(Path(data_dir) / "us_affairs_index_ts_interp.parquet")
+
+        datasets = {
+            "Crypto Index": _join_index_with_btc(df_crypto_idx, "crypto_poly_index"),
+            "Trump Index": _join_index_with_btc(df_trump_idx, "trump_poly_index"),
+            "US Affairs Index": _join_index_with_btc(df_usaffair_idx, "us_affairs_poly_index"),
+        }
+
+        granger_results = PolymarketFeatures.run_granger_for_datasets(
+            datasets,
+            price_col="PriceUSD",
+            index_col="mean",
+            date_col="date",
+            max_lag=max_lag,
+            alpha=alpha,
+            verbose=verbose,
+        )
+
+        fig, axes = plt.subplots(1, 2, figsize=(16, 8))
+        for ax, key, direction in zip(
+            axes,
+            ["p_poly->btc", "p_btc->poly"],
+            ["PolyIndex -> BTC Return", "BTC Return -> PolyIndex"],
+        ):
+            pval_mat = _build_pval_matrix(granger_results, key).T
+            sns.heatmap(
+                pval_mat,
+                ax=ax,
+                annot=True,
+                fmt=".2f",
+                cmap="RdYlGn_r",
+                vmin=0,
+                vmax=1,
+                linewidths=0.3,
+                cbar_kws={"label": "p-value", "shrink": 0.85},
+                annot_kws={"size": 6},
+            )
+            ax.axhline(y=0, color="black", linewidth=1.5)
+            ax.set_title(
+                f"Granger p-values: {direction}\\n(red cells = significant at alpha={alpha})",
+                fontsize=11,
+            )
+            ax.set_xlabel("Lag (days)")
+            ax.set_ylabel("Index")
+
+        plt.suptitle(
+            "Granger Causality Test — PolyIndex Changes vs BTC Returns\\n"
+            "(max lag = 30 days | min p-value across 4 test statistics)",
+            fontsize=13,
+            fontweight="bold",
+            y=1.01,
+        )
+        plt.tight_layout()
+        plt.savefig(
+            plots_dir / "team09-eda-polymarket-granger-heatmap.png",
+            dpi=150,
+            bbox_inches="tight",
+        )
+        plt.show()
+
+        summary_df = PolymarketFeatures.build_granger_summary(granger_results, alpha=alpha).copy()
+        summary_df["Min p"] = summary_df["Min p"].astype(float).round(4)
+        summary_df["Best Lag"] = summary_df["Best Lag"].astype(int)
+        summary_df["Direction_norm"] = summary_df["Direction"].map(_normalize_direction_label)
+
+        sig_col_candidates = [
+            "Significant (alpha=0.05)",
+            f"Significant (alpha={alpha})",
+        ]
+        sig_col = next((col for col in sig_col_candidates if col in summary_df.columns), None)
+        if sig_col is None:
+            raise KeyError(
+                f"Significant column not found. Available columns: {list(summary_df.columns)}"
+            )
+
+        summary_df["Significant"] = summary_df[sig_col].astype(str).str.contains("YES")
+        stat_view = summary_df[["Index", "Direction_norm", "Best Lag", "Min p", sig_col]].copy()
+        stat_view = stat_view.rename(columns={"Direction_norm": "Direction", sig_col: f"Significant (alpha={alpha})"})
+
+        def _lookup(index_name: str, direction: str, col: str):
+            row = summary_df[
+                (summary_df["Index"] == index_name) & (summary_df["Direction_norm"] == direction)
+            ].iloc[0]
+            return row[col]
+
+        decision_rows = []
+        for index_name in ["Crypto Index", "Trump Index", "US Affairs Index"]:
+            p2b_sig = bool(_lookup(index_name, "PolyIndex -> BTC", "Significant"))
+            b2p_sig = bool(_lookup(index_name, "BTC -> PolyIndex", "Significant"))
+            decision_rows.append(
+                {
+                    "Index": index_name,
+                    "Poly->BTC": f"{'YES' if p2b_sig else 'NO'} (lag {int(_lookup(index_name, 'PolyIndex -> BTC', 'Best Lag'))}, p={float(_lookup(index_name, 'PolyIndex -> BTC', 'Min p')):.4f})",
+                    "BTC->Poly": f"{'YES' if b2p_sig else 'NO'} (lag {int(_lookup(index_name, 'BTC -> PolyIndex', 'Best Lag'))}, p={float(_lookup(index_name, 'BTC -> PolyIndex', 'Min p')):.4f})",
+                    "Recommended Use": _usage_label(p2b_sig, b2p_sig),
+                }
+            )
+
+        decision_view = pd.DataFrame(decision_rows)
+
+        return {
+            "datasets": datasets,
+            "granger_results": granger_results,
+            "summary_df": summary_df,
+            "stat_view": stat_view,
+            "decision_view": decision_view,
+        }
 
 
 # PolymarketPlots — reusable chart functions
