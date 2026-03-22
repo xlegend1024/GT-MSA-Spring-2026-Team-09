@@ -145,7 +145,7 @@ class PolymarketUtils:
         df = df.with_columns(
             pl.when(
                 (pl.col("category") == "") &
-                (pl.col("__q_lc").str.contains(r"\b(bitcoin|btc|crypto|eth|bsv|bch|ada|xrp)\b"))
+                (pl.col("__q_lc").str.contains(r"\b(bitcoin|btc|crypto|eth|bsv|bch|ada|xrp|solana|ethereum)\b"))
             ).then(pl.lit("Crypto"))
             .otherwise(pl.col("category"))
             .alias("category")
