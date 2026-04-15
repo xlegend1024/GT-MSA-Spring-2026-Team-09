@@ -1,0 +1,858 @@
+[
+  {
+    "run_id": "v1_r001_base",
+    "version": "v1",
+    "variant": "base",
+    "run_seq": 1,
+    "timestamp": "2026-04-04T16:54:56",
+    "score": 58.83,
+    "win_rate": 67.34,
+    "wins": 1722,
+    "losses": 835,
+    "total_windows": 2557,
+    "mean_excess": 3.84,
+    "median_excess": 5.4,
+    "exp_decay_percentile": 50.31,
+    "mean_ratio": 1.1005,
+    "median_ratio": 1.1427,
+    "relative_improvement_pct_mean": 10.05,
+    "relative_improvement_pct_median": 14.27,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.0
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r002_crypto",
+    "version": "v1",
+    "variant": "base+crypto",
+    "run_seq": 2,
+    "timestamp": "2026-04-04T16:55:36",
+    "score": 58.73,
+    "win_rate": 67.93,
+    "wins": 1737,
+    "losses": 820,
+    "total_windows": 2557,
+    "mean_excess": 3.36,
+    "median_excess": 4.88,
+    "exp_decay_percentile": 49.54,
+    "mean_ratio": 1.0865,
+    "median_ratio": 1.1297,
+    "relative_improvement_pct_mean": 8.65,
+    "relative_improvement_pct_median": 12.97,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r003_trump",
+    "version": "v1",
+    "variant": "base+trump",
+    "run_seq": 3,
+    "timestamp": "2026-04-04T16:56:15",
+    "score": 57.3,
+    "win_rate": 66.21,
+    "wins": 1693,
+    "losses": 864,
+    "total_windows": 2557,
+    "mean_excess": 3.14,
+    "median_excess": 4.93,
+    "exp_decay_percentile": 48.39,
+    "mean_ratio": 1.0831,
+    "median_ratio": 1.1297,
+    "relative_improvement_pct_mean": 8.31,
+    "relative_improvement_pct_median": 12.97,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r004_us_affairs",
+    "version": "v1",
+    "variant": "base+us_affairs",
+    "run_seq": 4,
+    "timestamp": "2026-04-04T16:56:54",
+    "score": 58.24,
+    "win_rate": 67.38,
+    "wins": 1723,
+    "losses": 834,
+    "total_windows": 2557,
+    "mean_excess": 3.53,
+    "median_excess": 5.56,
+    "exp_decay_percentile": 49.11,
+    "mean_ratio": 1.0904,
+    "median_ratio": 1.1466,
+    "relative_improvement_pct_mean": 9.04,
+    "relative_improvement_pct_median": 14.66,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r005_crypto_us_affairs",
+    "version": "v1",
+    "variant": "base+crypto+us_affairs",
+    "run_seq": 5,
+    "timestamp": "2026-04-04T16:57:32",
+    "score": 58.82,
+    "win_rate": 68.28,
+    "wins": 1746,
+    "losses": 811,
+    "total_windows": 2557,
+    "mean_excess": 3.4,
+    "median_excess": 5.17,
+    "exp_decay_percentile": 49.36,
+    "mean_ratio": 1.0871,
+    "median_ratio": 1.1355,
+    "relative_improvement_pct_mean": 8.71,
+    "relative_improvement_pct_median": 13.55,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r006_crypto_trump",
+    "version": "v1",
+    "variant": "base+crypto+trump",
+    "run_seq": 6,
+    "timestamp": "2026-04-04T16:58:10",
+    "score": 58.19,
+    "win_rate": 67.46,
+    "wins": 1725,
+    "losses": 832,
+    "total_windows": 2557,
+    "mean_excess": 3.25,
+    "median_excess": 4.97,
+    "exp_decay_percentile": 48.92,
+    "mean_ratio": 1.0845,
+    "median_ratio": 1.1304,
+    "relative_improvement_pct_mean": 8.45,
+    "relative_improvement_pct_median": 13.04,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r007_trump_us_affairs",
+    "version": "v1",
+    "variant": "base+trump+us_affairs",
+    "run_seq": 7,
+    "timestamp": "2026-04-04T16:58:49",
+    "score": 58.08,
+    "win_rate": 67.23,
+    "wins": 1719,
+    "losses": 838,
+    "total_windows": 2557,
+    "mean_excess": 3.34,
+    "median_excess": 5.28,
+    "exp_decay_percentile": 48.93,
+    "mean_ratio": 1.0867,
+    "median_ratio": 1.1417,
+    "relative_improvement_pct_mean": 8.67,
+    "relative_improvement_pct_median": 14.17,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v1_r008_crypto_trump_us_affairs",
+    "version": "v1",
+    "variant": "base+crypto+trump+us_affairs",
+    "run_seq": 8,
+    "timestamp": "2026-04-04T16:59:29",
+    "score": 58.38,
+    "win_rate": 67.7,
+    "wins": 1731,
+    "losses": 826,
+    "total_windows": 2557,
+    "mean_excess": 3.33,
+    "median_excess": 5.08,
+    "exp_decay_percentile": 49.06,
+    "mean_ratio": 1.086,
+    "median_ratio": 1.1347,
+    "relative_improvement_pct_mean": 8.6,
+    "relative_improvement_pct_median": 13.47,
+    "hyperparams": {
+      "dynamic_strength": 4.0,
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "w_poly": 0.15
+    },
+    "notes": ""
+  },
+  {
+    "run_id": "v2_r009_default",
+    "version": "v2",
+    "variant": "default",
+    "run_seq": 9,
+    "timestamp": "2026-04-04T17:04:21",
+    "score": 58.87,
+    "win_rate": 67.42,
+    "wins": 1724,
+    "losses": 833,
+    "total_windows": 2557,
+    "mean_excess": 3.86,
+    "median_excess": 5.44,
+    "exp_decay_percentile": 50.31,
+    "mean_ratio": 1.1011,
+    "median_ratio": 1.1427,
+    "relative_improvement_pct_mean": 10.11,
+    "relative_improvement_pct_median": 14.27,
+    "hyperparams": {
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "dynamic_strength": 4.0,
+      "mvrv_accum": 1.0
+    },
+    "walk_forward": null,
+    "notes": "V1 default params with V2 nonlinear boost"
+  },
+  {
+    "run_id": "v2_r010_default_crypto_us_affairs",
+    "version": "v2",
+    "variant": "default+crypto+us_affairs",
+    "run_seq": 10,
+    "timestamp": "2026-04-04T17:05:02",
+    "score": 58.84,
+    "win_rate": 68.32,
+    "wins": 1747,
+    "losses": 810,
+    "total_windows": 2557,
+    "mean_excess": 3.42,
+    "median_excess": 5.19,
+    "exp_decay_percentile": 49.36,
+    "mean_ratio": 1.0876,
+    "median_ratio": 1.1354,
+    "relative_improvement_pct_mean": 8.76,
+    "relative_improvement_pct_median": 13.54,
+    "hyperparams": {
+      "w_mvrv": 0.35,
+      "w_ma": 0.2,
+      "w_flow": 0.15,
+      "w_halving": 0.1,
+      "w_confidence": 0.2,
+      "dynamic_strength": 4.0,
+      "mvrv_accum": 1.0
+    },
+    "walk_forward": null,
+    "notes": "V1 default params with poly overlays"
+  },
+  {
+    "run_id": "v2_r011_optimized",
+    "version": "v2",
+    "variant": "optimized",
+    "run_seq": 11,
+    "timestamp": "2026-04-04T17:05:41",
+    "score": 61.37,
+    "win_rate": 66.64,
+    "wins": 1704,
+    "losses": 853,
+    "total_windows": 2557,
+    "mean_excess": 6.52,
+    "median_excess": 7.68,
+    "exp_decay_percentile": 56.1,
+    "mean_ratio": 1.1829,
+    "median_ratio": 1.1929,
+    "relative_improvement_pct_mean": 18.29,
+    "relative_improvement_pct_median": 19.29,
+    "hyperparams": {
+      "w_mvrv": 0.4799999999999947,
+      "w_ma": 0.05000000000000319,
+      "w_flow": 0.3999999999999999,
+      "w_halving": 0.019999999999999997,
+      "w_confidence": 0.05000000000000214,
+      "dynamic_strength": 6.999999999999993,
+      "mvrv_accum": 1.3
+    },
+    "walk_forward": [
+      {
+        "fold": 1,
+        "train_period": "2018-01-01 \u2192 2021-12-31",
+        "test_period": "2022-01-01 \u2192 2022-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.5999999999999704,
+          "w_ma": 0.04999999999999754,
+          "w_flow": 0.28000000000003533,
+          "w_halving": 0.019999999999999015,
+          "w_confidence": 0.04999999999999754,
+          "dynamic_strength": 7.0,
+          "mvrv_accum": 1.3
+        },
+        "train_mean_excess": 9.7686,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 2,
+        "train_period": "2018-01-01 \u2192 2022-12-31",
+        "test_period": "2023-01-01 \u2192 2023-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.5999999999999989,
+          "w_ma": 0.050000000000001134,
+          "w_flow": 0.2799999999999942,
+          "w_halving": 0.02000000000000391,
+          "w_confidence": 0.050000000000001925,
+          "dynamic_strength": 6.999999999999966,
+          "mvrv_accum": 1.299999999999989
+        },
+        "train_mean_excess": 11.1175,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 3,
+        "train_period": "2018-01-01 \u2192 2023-12-31",
+        "test_period": "2024-01-01 \u2192 2024-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.48000000000042137,
+          "w_ma": 0.05000000000024909,
+          "w_flow": 0.3999999999989513,
+          "w_halving": 0.02000000000012603,
+          "w_confidence": 0.05000000000025229,
+          "dynamic_strength": 6.999999999998736,
+          "mvrv_accum": 1.2999999999995364
+        },
+        "train_mean_excess": 6.6309,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 4,
+        "train_period": "2018-01-01 \u2192 2024-12-31",
+        "test_period": "2025-01-01 \u2192 2025-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.4799999999999947,
+          "w_ma": 0.05000000000000319,
+          "w_flow": 0.3999999999999999,
+          "w_halving": 0.019999999999999997,
+          "w_confidence": 0.05000000000000214,
+          "dynamic_strength": 6.999999999999993,
+          "mvrv_accum": 1.3
+        },
+        "train_mean_excess": 5.8826,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      }
+    ],
+    "notes": "Walk-forward optimized (base)"
+  },
+  {
+    "run_id": "v2_r012_optimized_crypto_us_affairs",
+    "version": "v2",
+    "variant": "optimized+crypto+us_affairs",
+    "run_seq": 12,
+    "timestamp": "2026-04-04T17:06:22",
+    "score": 61.46,
+    "win_rate": 66.95,
+    "wins": 1712,
+    "losses": 845,
+    "total_windows": 2557,
+    "mean_excess": 6.25,
+    "median_excess": 8.54,
+    "exp_decay_percentile": 55.96,
+    "mean_ratio": 1.1727,
+    "median_ratio": 1.2157,
+    "relative_improvement_pct_mean": 17.27,
+    "relative_improvement_pct_median": 21.57,
+    "hyperparams": {
+      "w_mvrv": 0.48000000000012183,
+      "w_ma": 0.050000000000177236,
+      "w_flow": 0.39999999999939456,
+      "w_halving": 0.0200000000001314,
+      "w_confidence": 0.05000000000017514,
+      "dynamic_strength": 7.0,
+      "mvrv_accum": 1.299999999999608
+    },
+    "walk_forward": [
+      {
+        "fold": 1,
+        "train_period": "2018-01-01 \u2192 2021-12-31",
+        "test_period": "2022-01-01 \u2192 2022-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.5999999999995451,
+          "w_ma": 0.0499999999999621,
+          "w_flow": 0.28000000000054576,
+          "w_halving": 0.01999999999998484,
+          "w_confidence": 0.0499999999999621,
+          "dynamic_strength": 7.0,
+          "mvrv_accum": 1.3
+        },
+        "train_mean_excess": 8.8956,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 2,
+        "train_period": "2018-01-01 \u2192 2022-12-31",
+        "test_period": "2023-01-01 \u2192 2023-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.5999999999997804,
+          "w_ma": 0.049999999999995194,
+          "w_flow": 0.2799999999999636,
+          "w_halving": 0.02000000000010622,
+          "w_confidence": 0.05000000000015447,
+          "dynamic_strength": 6.999999999998191,
+          "mvrv_accum": 1.299999999999391
+        },
+        "train_mean_excess": 10.3816,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 3,
+        "train_period": "2018-01-01 \u2192 2023-12-31",
+        "test_period": "2024-01-01 \u2192 2024-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.5310392241505566,
+          "w_ma": 0.04999999999999175,
+          "w_flow": 0.3489607758494631,
+          "w_halving": 0.0199999999999967,
+          "w_confidence": 0.04999999999999175,
+          "dynamic_strength": 6.999999999999833,
+          "mvrv_accum": 1.3
+        },
+        "train_mean_excess": 5.9903,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      },
+      {
+        "fold": 4,
+        "train_period": "2018-01-01 \u2192 2024-12-31",
+        "test_period": "2025-01-01 \u2192 2025-12-31",
+        "optimized_params": {
+          "w_mvrv": 0.48000000000012183,
+          "w_ma": 0.050000000000177236,
+          "w_flow": 0.39999999999939456,
+          "w_halving": 0.0200000000001314,
+          "w_confidence": 0.05000000000017514,
+          "dynamic_strength": 7.0,
+          "mvrv_accum": 1.299999999999608
+        },
+        "train_mean_excess": 5.4006,
+        "test_mean_excess": -0.0,
+        "default_test_mean_excess": -0.0,
+        "improvement_vs_default": 0.0
+      }
+    ],
+    "notes": "Walk-forward optimized (poly)"
+  },
+  {
+    "run_id": "v3_r013_qlearner",
+    "version": "v3",
+    "variant": "qlearner",
+    "run_seq": 13,
+    "timestamp": "2026-04-04T17:10:10",
+    "score": 40.92,
+    "win_rate": 42.35,
+    "wins": 1083,
+    "losses": 1474,
+    "total_windows": 2557,
+    "mean_excess": -1.41,
+    "median_excess": -0.34,
+    "exp_decay_percentile": 39.5,
+    "mean_ratio": 0.9668,
+    "median_ratio": 0.9901,
+    "relative_improvement_pct_mean": -3.32,
+    "relative_improvement_pct_median": -0.99,
+    "hyperparams": {
+      "alpha": 0.15,
+      "gamma": 0.9,
+      "n_epochs": 100,
+      "dyna": 200,
+      "num_states": 30,
+      "num_actions": 5,
+      "actions": [
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.5
+      ]
+    },
+    "learned_policy": {
+      "deep_val_bear_outflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.172983817234725
+      },
+      "deep_val_bear_flat": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.2640916187257907
+      },
+      "deep_val_bear_inflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.4360650006274547
+      },
+      "value_bear_outflow": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 4.750623287213771
+      },
+      "value_bear_flat": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 4.58772615816775
+      },
+      "value_bear_inflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 6.376137146707167
+      },
+      "neutral_bear_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.841494840313878
+      },
+      "neutral_bear_flat": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.888030222625133
+      },
+      "neutral_bear_inflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.663522219863268
+      },
+      "neutral_bull_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.403373488782433
+      },
+      "neutral_bull_flat": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 10.430788341036234
+      },
+      "neutral_bull_inflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.445757182239824
+      },
+      "caution_bear_outflow": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 7.457422045850465
+      },
+      "caution_bear_flat": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 6.938366669524479
+      },
+      "caution_bear_inflow": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 8.142296395234414
+      },
+      "caution_bull_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.52444711166617
+      },
+      "caution_bull_flat": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.602211025554444
+      },
+      "caution_bull_inflow": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 10.377976499490238
+      },
+      "danger_bull_outflow": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 5.828167418908871
+      },
+      "danger_bull_flat": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 5.963776238121876
+      },
+      "danger_bull_inflow": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 6.349733005941989
+      }
+    },
+    "notes": "Q-Learning with Dyna-Q, trained on 2018-2024"
+  },
+  {
+    "run_id": "v3_r014_qlearner_crypto_us_affairs",
+    "version": "v3",
+    "variant": "qlearner+crypto+us_affairs",
+    "run_seq": 14,
+    "timestamp": "2026-04-04T17:11:06",
+    "score": 41.19,
+    "win_rate": 42.82,
+    "wins": 1095,
+    "losses": 1462,
+    "total_windows": 2557,
+    "mean_excess": -1.4,
+    "median_excess": -0.35,
+    "exp_decay_percentile": 39.57,
+    "mean_ratio": 0.9669,
+    "median_ratio": 0.9899,
+    "relative_improvement_pct_mean": -3.31,
+    "relative_improvement_pct_median": -1.01,
+    "hyperparams": {
+      "alpha": 0.15,
+      "gamma": 0.9,
+      "n_epochs": 100,
+      "dyna": 200,
+      "num_states": 30,
+      "num_actions": 5,
+      "actions": [
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.5
+      ]
+    },
+    "learned_policy": {
+      "deep_val_bear_outflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.172983817234725
+      },
+      "deep_val_bear_flat": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.2640916187257907
+      },
+      "deep_val_bear_inflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 3.4360650006274547
+      },
+      "value_bear_outflow": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 4.750623287213771
+      },
+      "value_bear_flat": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 4.58772615816775
+      },
+      "value_bear_inflow": {
+        "action": 2,
+        "multiplier": 1.0,
+        "q_value": 6.376137146707167
+      },
+      "neutral_bear_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.841494840313878
+      },
+      "neutral_bear_flat": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.888030222625133
+      },
+      "neutral_bear_inflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 13.663522219863268
+      },
+      "neutral_bull_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.403373488782433
+      },
+      "neutral_bull_flat": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 10.430788341036234
+      },
+      "neutral_bull_inflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.445757182239824
+      },
+      "caution_bear_outflow": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 7.457422045850465
+      },
+      "caution_bear_flat": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 6.938366669524479
+      },
+      "caution_bear_inflow": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 8.142296395234414
+      },
+      "caution_bull_outflow": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.52444711166617
+      },
+      "caution_bull_flat": {
+        "action": 4,
+        "multiplier": 2.5,
+        "q_value": 11.602211025554444
+      },
+      "caution_bull_inflow": {
+        "action": 3,
+        "multiplier": 1.5,
+        "q_value": 10.377976499490238
+      },
+      "danger_bull_outflow": {
+        "action": 0,
+        "multiplier": 0.25,
+        "q_value": 5.828167418908871
+      },
+      "danger_bull_flat": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 5.963776238121876
+      },
+      "danger_bull_inflow": {
+        "action": 1,
+        "multiplier": 0.5,
+        "q_value": 6.349733005941989
+      }
+    },
+    "notes": "Q-Learning + poly overlays"
+  },
+  {
+    "run_id": "v3_r015_qlearner_inverse",
+    "version": "v3",
+    "variant": "qlearner_inverse",
+    "run_seq": 15,
+    "timestamp": "2026-04-04T17:12:03",
+    "score": 40.94,
+    "win_rate": 44.27,
+    "wins": 1132,
+    "losses": 1425,
+    "total_windows": 2557,
+    "mean_excess": 1.43,
+    "median_excess": -0.31,
+    "exp_decay_percentile": 37.6,
+    "mean_ratio": 1.0368,
+    "median_ratio": 0.9904,
+    "relative_improvement_pct_mean": 3.68,
+    "relative_improvement_pct_median": -0.96,
+    "hyperparams": {
+      "alpha": 0.15,
+      "gamma": 0.9,
+      "n_epochs": 100,
+      "dyna": 200,
+      "num_states": 30,
+      "num_actions": 5,
+      "actions": [
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.5
+      ],
+      "inverse": true
+    },
+    "learned_policy": null,
+    "notes": "Inverse Q-policy: 1/original_multiplier"
+  },
+  {
+    "run_id": "v3_r016_qlearner_inverse_crypto_us_affairs",
+    "version": "v3",
+    "variant": "qlearner_inverse+crypto+us_affairs",
+    "run_seq": 16,
+    "timestamp": "2026-04-04T17:13:00",
+    "score": 40.82,
+    "win_rate": 44.0,
+    "wins": 1125,
+    "losses": 1432,
+    "total_windows": 2557,
+    "mean_excess": 1.45,
+    "median_excess": -0.33,
+    "exp_decay_percentile": 37.65,
+    "mean_ratio": 1.0371,
+    "median_ratio": 0.9903,
+    "relative_improvement_pct_mean": 3.71,
+    "relative_improvement_pct_median": -0.97,
+    "hyperparams": {
+      "alpha": 0.15,
+      "gamma": 0.9,
+      "n_epochs": 100,
+      "dyna": 200,
+      "num_states": 30,
+      "num_actions": 5,
+      "actions": [
+        0.25,
+        0.5,
+        1.0,
+        1.5,
+        2.5
+      ],
+      "inverse": true
+    },
+    "learned_policy": null,
+    "notes": "Inverse Q-policy + poly overlays"
+  }
+]
