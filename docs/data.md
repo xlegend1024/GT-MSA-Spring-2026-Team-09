@@ -9,7 +9,7 @@
 
 ### CoinMetrics
 
-The primary dataset for the project was the daily CoinMetrics Bitcoin series. It provided the core price and on-chain context used throughout modeling and backtesting.
+Our primary dataset was the daily CoinMetrics Bitcoin series. It provided the core price and on-chain context used throughout modeling and backtesting.
 
 At the repository level, CoinMetrics is also the source of truth for BTC-USD pricing in the backtest framework. The `PriceUSD` field is the benchmark reference price for evaluating accumulation efficiency against uniform DCA. Beyond price, the dataset includes the on-chain variables used to build valuation, flow, supply, activity, and cycle-related signals.
 
@@ -23,7 +23,7 @@ The modeling and backtesting workflow operates on a daily horizon across the rep
 
 The secondary dataset came from Polymarket market data, especially finance-, politics-, and crypto-related markets that could plausibly reflect event-sensitive sentiment relevant to Bitcoin. Unlike CoinMetrics, Polymarket played an exploratory role rather than serving as the structural base of the final model.
 
-The Polymarket data includes market metadata, token mappings, trades, odds history, event summaries, and market summaries. In this project, those records were transformed into higher-level overlays such as `crypto`, `trump`, and `us_affairs` for early-stage signal testing.
+The Polymarket data includes market metadata, token mappings, trades, odds history, event summaries, and market summaries. In the analysis, those records were transformed into higher-level overlays such as `crypto`, `trump`, and `us_affairs` for early-stage signal testing.
 
 One implementation detail matters for reproducibility: some Polymarket parquet timestamps are stored with incorrect units and can appear corrupted if read naively. The repository loaders correct these timestamp issues at runtime, so analysis should use the provided loaders rather than raw direct reads.
 

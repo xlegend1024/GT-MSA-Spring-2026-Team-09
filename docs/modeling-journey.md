@@ -1,6 +1,6 @@
 # Modeling Journey
 
-The project first built an interpretable baseline model and then refined it through experiments that added or removed candidate signals as their value became clearer. In the final stage, the main improvement came from optimizing the allocation mechanism itself. 
+We first built an interpretable baseline model and then refined it through experiments that added or removed candidate signals as their value became clearer. In the final stage, the main improvement came from optimizing the allocation mechanism itself. 
 
 ## Cross-Step Comparison Table
 
@@ -21,7 +21,7 @@ The project first built an interpretable baseline model and then refined it thro
 
 - Built the first interpretable on-chain baseline using valuation, regime, cycle, and exchange-flow information.
 - Reached a 54.36% score, a 68.13% win rate, and a 40.59% exp-decay percentile.
-- Showed that the project had a credible baseline worth refining rather than a weak benchmark to overfit against.
+- Showed that we had a credible baseline worth refining rather than a weak benchmark to overfit against.
 
 ## Step 2. Learning That More Signals Are Not Better
 
@@ -55,4 +55,4 @@ The project first built an interpretable baseline model and then refined it thro
 
 ## Final Results
 
-This project shows that a dynamic, interpretable, long-only Bitcoin accumulation rule can improve meaningfully on uniform DCA under the same rolling-budget constraints. The final model reached a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile in rolling one-year evaluations.
+The results show that a dynamic, interpretable, long-only Bitcoin accumulation rule can improve meaningfully on uniform DCA under the same rolling-budget constraints. The final model reached a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile in rolling one-year evaluations.
