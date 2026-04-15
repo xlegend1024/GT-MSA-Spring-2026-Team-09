@@ -12,7 +12,7 @@ Uniform DCA is easy to explain. It makes no hidden judgment calls. Every day rec
 
 ![Uniform DCA positioned within oracle best and worst accumulation bounds by year](assets/figures/uniform-dca-within-oracle-bounds-by-year.png)
 
-*Figure B-F1. Uniform DCA viewed against the best-possible and worst-possible accumulation outcomes within each rolling-window year. The left panel shows that uniform DCA usually sits well above the worst timing outcome, which helps explain why it is practical and robust. The right panel shows that it still captures only about one-third to mid-forty-percent of the feasible range in most years and remains materially below the oracle best, which is exactly why it is understandable and executable without being optimal.*
+*Figure-1. Uniform DCA viewed against the best-possible and worst-possible accumulation outcomes within each rolling-window year. The left panel shows that uniform DCA usually sits well above the worst timing outcome, which helps explain why it is practical and robust. The right panel shows that it still captures only about one-third to mid-forty-percent of the feasible range in most years and remains materially below the oracle best, which is exactly why it is understandable and executable without being optimal.*
 
 ## Building a Decision System
 
@@ -22,7 +22,7 @@ That is why we focus on identifying signals such as valuation, market regime, ex
 
 ![Signal confidence view combining sub-signals and forward-return behavior](assets/figures/jpark-signal-confidence-view.png)
 
-*Figure B-F2. We treat accumulation as a decision system: multiple sub-signals are transformed into a confidence score, and that score is judged by how it relates to future outcomes rather than by standalone price prediction claims.*
+*Figure-2. We treat accumulation as a decision system: multiple sub-signals are transformed into a confidence score, and that score is judged by how it relates to future outcomes rather than by standalone price prediction claims.*
 
 ## Interpretation Requirement
 

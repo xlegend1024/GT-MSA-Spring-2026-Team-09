@@ -21,7 +21,7 @@ EDA showed that valuation matters, but not in exactly the same way all the time.
 
 ![MVRV valuation zones used to identify attractive accumulation regimes](assets/figures/mvrv-accumulation-zones.png)
 
-*Figure E-F1. MVRV valuation zones helped show why valuation emerged as one of the strongest early candidates for accumulation timing.*
+*Figure-5. MVRV valuation zones helped show why valuation emerged as one of the strongest early candidates for accumulation timing.*
 
 ## Flow Signal Evidence
 
@@ -29,13 +29,13 @@ Exchange-related features formed the second major group of promising signals. Ex
 
 ![Exchange net flow and supply-pressure evidence](assets/figures/jpark-exchange-flow-supply-pressure.png)
 
-*Figure E-F2. Exchange-flow behavior provided a second economic channel beyond valuation. It supported the idea that accumulation timing could improve when valuation signals were combined with interpretable supply-pressure information.*
+*Figure-6. Exchange-flow behavior provided a second economic channel beyond valuation. It supported the idea that accumulation timing could improve when valuation signals were combined with interpretable supply-pressure information.*
 
 MA200 also looked useful at this stage. As a trend or regime lens, it helped separate below-trend accumulation periods from weaker accumulation periods and stronger momentum periods. That made it a reasonable early modeling candidate even though it was not ultimately retained in the final architecture.
 
 ![MA200 bull and bear regime overlay on long-horizon Bitcoin price](assets/figures/ma200-bull-bear-regime-overlay.png)
 
-*Figure E-F3. MA200 regime shading provided an interpretable market-state view in exploration, which is why it remained a credible early candidate even before later simplification work.*
+*Figure-7. MA200 regime shading provided an interpretable market-state view in exploration, which is why it remained a credible early candidate even before later simplification work.*
 
 Halving proximity also remained useful in EDA, not as a day-to-day trading signal, but as a cycle-timing input. In the context of Bitcoin accumulation, that was sufficient. We did not need every signal to operate at the same horizon, only to contribute interpretable information that improved the timing of capital deployment across rolling windows.
 
@@ -43,13 +43,15 @@ External signals also appeared interesting enough to test. In particular, Polyma
 
 ![Post-halving returns by time window](assets/figures/post-halving-returns-by-window.png)
 
-*Figure E-F4. Post-halving return patterns suggested that cycle position could matter even if it was not a short-horizon trading signal. That made halving proximity a reasonable feature to carry forward as a cycle-timing hypothesis.*
+*Figure-8. Post-halving return patterns suggested that cycle position could matter even if it was not a short-horizon trading signal. That made halving proximity a reasonable feature to carry forward as a cycle-timing hypothesis.*
 
 ## Demand And Activity Evidence
 
 Activity-based signals were also promising in EDA, especially those tied to network participation. The intuition was straightforward: if demand for the network is strengthening, then that demand may contain incremental information beyond what valuation alone can capture. This theme later became important in Step 3, where active-address style information was the first additional feature family to generate a clear improvement after the baseline.
 
 ![Active Address count, Has Rate, Transactions count trend over time](assets/figures/jpark-network-activity-trend.png)
+
+*Figure-9. On-Chain activity data.*
 
 ## External Signal Evidence
 
@@ -74,7 +76,7 @@ The working hypothesis was that Polymarket activity might act as a leading indic
 
 ![Polymarket crowd-sentiment view from the exploratory notebook](assets/figures/polymarket-crowd-sentiment.png)
 
-*Figure E-F5. Polymarket sentiment was visually interesting enough to justify testing, but exploratory plausibility alone was not enough. Later benchmark comparisons showed that these overlays did not improve the on-chain base model in a meaningful overall way.*
+*Figure-10. Polymarket sentiment was visually interesting enough to justify testing, but exploratory plausibility alone was not enough. Later benchmark comparisons showed that these overlays did not improve the on-chain base model in a meaningful overall way.*
 
 ## Redundancy And Overlap Evidence
 
