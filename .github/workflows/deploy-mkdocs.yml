@@ -34,16 +34,13 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Install project dependencies
-        run: uv sync --no-dev
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
       - name: Build MkDocs site
-        run: uv run mkdocs build --strict
+        run: uv run --with "mkdocs>=1.6.1" --with "mkdocs-material>=9.7.6" mkdocs build --strict
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
