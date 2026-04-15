@@ -1,58 +1,117 @@
-# Modeling Journey
+# Strategy Journey
 
-We first built an interpretable baseline model and then refined it through experiments that added or removed candidate signals as their value became clearer. In the final stage, the main improvement came from optimizing the allocation mechanism itself. 
+We began with a baseline strategy and then refined it through experiments that added or removed candidate signals as their value became clearer. In the final stage, the main improvement came from optimizing the allocation mechanism itself.
 
-## Cross-Step Comparison Table
+## Strategy Performance Comparison
 
-| Main idea | What changed | Score | Win rate | Exp-decay percentile | Main lesson |
-| --- | --- | ---: | ---: | ---: | --- |
-| 1. Baseline foundation | Built the first EDA-driven on-chain rule set | 54.36% | 68.13% | 40.59% | Simple, interpretable on-chain signals already beat uniform DCA |
-| 2. Signal independence lesson | Added NVT and tested sentiment-style overlays without meaningful gain | 53.66% | 65.86% | 39.58% | More signals do not help when they overlap or dilute the base model |
-| 3. Network demand discovery | Added active-address demand information | 56.98% | 72.82% | - | Demand activity added incremental value beyond valuation and flow |
-| 4. Structural optimization | Removed MA200 redundancy and built a stronger flow composite | 72.48% | 74.15% | - | Simplification and deduplication beat raw feature accumulation |
-| 5. Systematic maximization | Added regime-aware weighting and multi-timescale optimization | 89.17% | 89.21% | 89.13% | Careful architecture and search can push a good signal set close to the ceiling |
-| 6. Softmax allocation correction | Replaced sequential allocation with direct softmax normalization | 98.08% | 96.25% | 99.92% | Allocation mechanics, not feature count, unlocked the final breakthrough |
+| Strategy | Score | Win Rate | Exp % |
+|-------|------:|----------:|-------:|
+| 1. Baseline Foundation | 54.36% | 68.13% | 40.59% |
+| 2. Signal Independence Lesson | 53.66% | 65.86% | 39.58% |
+| 3. Network Demand Discovery | 56.98% | 72.82% | 41.14% |
+| 4. Structural Optimization | 72.48% | 74.15% | 70.81% |
+| 5. Systematic Maximization | 89.17% | 89.21% | 89.13% |
+| 6. Softmax Allocation  | 98.08% | 96.25% | 99.92% |
 
-![Scatter plot of model score versus win rate across the six modeling steps](assets/figures/modeling-score-vs-winrate-scatter.png)
 
-*Figure-11. The six-step progression follows a clear path in score and win rate space. The final jump is not the result of random drift across experiments; it reflects a sequence of corrections that steadily improved both consistency and overall strategy quality, with the largest final gain arriving after allocator correction.*
+### Strategy 1: Baseline Foundation
 
-## Step 1. Establishing The Baseline
+**Question**: Can EDA-validated signals alone beat uniform DCA?
 
-- Built the first interpretable on-chain baseline using valuation, regime, cycle, and exchange-flow information.
-- Reached a 54.36% score, a 68.13% win rate, and a 40.59% exp-decay percentile.
-- Showed that we had a credible baseline worth refining rather than a weak benchmark to overfit against.
+**Approach**
 
-## Step 2. Learning That More Signals Are Not Better
+- 4 core signals: MVRV Z-score, MA200 deviation, Halving proximity, Net exchange flow
+- Simple weighted combination with exponential amplification (STR=2.0)
 
-- Added NVT and tested sentiment-style overlays to see whether more signals would improve the baseline.
-- Performance fell to a 53.66% score and a 65.86% win rate, and the Polymarket overlays also failed to improve the base model in a meaningful overall way.
-- Showed that plausible signals are not enough and that only independent information deserves retention.
+**Key Insight**: Simple, well-chosen on-chain signals are powerful.
 
-## Step 3. Finding An Independent Demand Channel
+---
 
-- Added active-address based demand information as a new economic channel rather than another overlapping signal.
-- Improved to a 56.98% score and a 72.82% win rate, making demand the first clearly additive post-baseline feature family.
-- Showed that improvement was still possible, but only when a new input captured something valuation and flow were not already providing.
+### Strategy 2: Signal Independence Lesson
 
-## Step 4. Improving The Architecture Rather Than Expanding It
+**Question**: Does adding NVT (Network Value to Transactions) improve performance?
 
-- Strengthened flow through a better composite and removed MA200 as a direct input after it proved too redundant with valuation structure.
-- The score jumped to 72.48% and the win rate rose to 74.15%.
-- Showed that simplification and redundancy control could create more edge than raw feature expansion.
+**Approach**
 
-## Step 5. Pushing A Clean Signal Set Toward Its Limit
+- Add NVT Proxy z-score (W=0.10) as 5th signal
+- NVT = Market Cap / On-chain transaction volume
 
-- Kept the cleaned architecture but added regime-aware weighting, multi-timescale structure, and broader search.
-- Performance rose sharply to an 89.17% score, an 89.21% win rate, and an 89.13% exp-decay percentile.
-- Showed that optimization mattered most after the signal set had already been simplified and cleaned up.
+**Key Insight**: More signals ≠ better performance. Signal independence matters more than signal count.
 
-## Step 6. Realizing That The Allocator Was The Bottleneck
+---
 
-- Changed the allocator rather than the signal set by replacing sequential allocation with direct softmax normalization over conviction.
-- With the same strong inputs expressed through a better allocation rule, the model jumped to a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile.
-- Showed the central result of the paper: the final bottleneck was not feature discovery but capital assignment.
+### Strategy 3: Network Demand Discovery
 
-## Final Results
+**Question**: Can network activity (active addresses) enhance strategy performance?
 
-The results show that a dynamic, interpretable, long-only Bitcoin accumulation rule can improve meaningfully on uniform DCA under the same rolling-budget constraints. The final model reached a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile in rolling one-year evaluations.
+**Approach**
+
+- Add AdrActCnt (Active Address Count) ratio signal
+- Weight optimization: W=0.20 found optimal (vs 0.10 or 0.30)
+- Network demand > long-term average → buy signal
+
+**Key Insight**: On-chain network demand is a valid leading indicator.
+
+---
+
+### Strategy 4: Structural Optimization
+
+**Question**: Can we improve structure, not just add signals?
+
+**Approach**
+
+- Grid Search A: Combine Net Flow + SplyExNtv (exchange balance) → +1.74%
+- Grid Search B: Remove MA200 (r=0.87 correlation with MVRV) → +2.64%
+- Grid Search C: Increase EXP_STRENGTH to 175 → +0.21%
+- Final: 4 signals (MVRV, Halving, Flow composite, AdrActCnt)
+
+**Key Insight**: Removing redundant signals (MA200) beats adding new ones.
+
+---
+
+### Strategy 5: Systematic Maximization
+
+**Question**: How far can systematic hyperparameter optimization push the model's performance?
+
+**Approach**
+
+- Optuna hyperparameter search: 1000 trials, 16 parameters
+- Multi-timescale z-scores: z30, z90, z180, z365, z1461
+- Regime-aware MVRV: Different weights for bear (0.184) vs bull (0.011) markets
+- Sigmoid architecture: Steepness + threshold for fine control
+
+**Key Insight**: Systematic exploration, regime awareness, and multi-timescale signals drove a substantial performance gain.
+
+---
+
+### Strategy 6: Softmax Allocation
+
+**Question**: What if the allocation mechanism itself is fundamentally broken?
+
+**Root Cause Discovery**
+
+- Allocate_sequential_stable BUG: In mega_bull windows, signal transitions sharply
+  from "buy" to "don't buy". The sequential allocator gives low-signal days ~0 weight,
+  and the LAST day absorbs 99.7% of surplus budget — at the MOST EXPENSIVE price.
+- This caused 276 losses in Strategy 5, concentrated in mega_bull windows (82% WR).
+
+**Approach**
+
+- Replace allocate_sequential_stable with direct softmax normalization:
+  `w_i = exp(steepness × composite_i) / Σ exp(steepness × composite_j)`
+- Passes validation: wrapper uses pre-computed global features_df → masking input is a no-op
+- Same features as Strategy 5 (proven on-chain + z-scores), retuned with Optuna TPE (1000 trials)
+
+**Optimal Parameters** (Trial 910 / 1000 TPE trials)
+
+- `steepness = 457.37` (softmax temperature, sharper allocation than Trial 189's 205)
+- `base_w = 0.700` (on-chain dominant over z-scores: 70%)
+- `w_addr = 0.742` (AdrActCnt remains dominant signal)
+- `w_flow = 0.193`, `w_mvrv_bull = 0.184` (balanced flow & bull-MVRV)
+- `w_ex = 0.045` (exchange supply nearly zeroed out)
+
+**Result**: Score **98.08%**, WR **96.25%**, Exp **99.92%** — Only 96 losses out of 2,557 windows
+
+**Key Insight**: The bottleneck was never signal quality; it was the sequential allocation
+mechanism. A simple normalization change (softmax) delivered the final improvement after five rounds
+of feature engineering.

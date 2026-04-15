@@ -6,25 +6,19 @@ We ask a practical capital allocation question: can a data-driven Bitcoin accumu
 
 ## Baseline
 
-Uniform DCA is the benchmark because it is realistic, transparent, and already strong. It spreads purchases evenly through time, avoids discretionary overreaction, and gives us a serious baseline that many investors would actually consider using. The first baseline-foundation model already demonstrated why this comparison was meaningful: even a simple interpretable on-chain rule reached a 54.36% score with a 68.13% win rate, which was enough to show that we could improve on uniform DCA without abandoning transparency. Any later dynamic model therefore had to justify its extra complexity by improving on a rule that was not only simple and defensible, but already measurably competitive.
+Uniform DCA is the benchmark because it is realistic, transparent, and already strong. The first baseline-foundation strategy showed that even a simple interpretable on-chain rule could improve on that benchmark, so any later dynamic strategy had to justify its extra complexity by improving on a rule that was already competitive.
+
+All results were evaluated under the same long-only, fixed-budget rolling backtest against uniform DCA using score, win rate, and exp-decay percentile.
 
 ## Final Result
 
-Across the six-step modeling progression, the final strategy reached a 98.08% model score, a 96.25% win rate, and a 99.92% exp-decay percentile in rolling one-year evaluations against uniform DCA. The progression moved from an interpretable on-chain baseline, through feature selection and structural simplification, into regime-aware optimization, and finally to an allocation-rule correction that unlocked the largest remaining gain.
+Across the six-step strategy progression, the final strategy reached a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile in rolling one-year evaluations against uniform DCA. The path to that result was not a straight line. We began with an interpretable on-chain baseline, learned in Step 2 that simply adding NVT did not help, improved in Step 3 by introducing network-demand information, gained much more in Step 4 by removing redundant structure and strengthening the flow signal, and then pushed the cleaned architecture further in Step 5 through systematic search, regime-aware weighting, and multi-timescale price structure.
 
-The main takeaway is that the strongest improvement did not come from endlessly adding more signals. It came from learning which signals were actually independent, removing redundant structure, and then correcting the allocation mechanism itself. By the end of the analysis, the limiting factor was no longer feature discovery. It was how the model translated conviction into weights within a fixed rolling budget.
+The final jump came in Step 6, where the same strong signal set was expressed through direct softmax normalization instead of sequential allocation. That allocation change produced the largest remaining improvement and brought the strategy close to the practical ceiling observed in this evaluation setting.
 
-| Step | Score | Win rate | Exp-decay percentile | Main lesson |
-| --- | ---: | ---: | ---: | --- |
-| 1. Baseline foundation | 54.36% | 68.13% | 40.59% | A simple, interpretable on-chain rule set already beats uniform DCA |
-| 2. Signal independence lesson | 53.66% | 65.86% | 39.58% | More signals do not help when they overlap or fail to add real decision value |
-| 3. Network demand discovery | 56.98% | 72.82% | - | Active-address demand contributed a genuinely additive signal channel |
-| 4. Structural optimization | 72.48% | 74.15% | - | Removing redundancy and improving compositing beat naive feature accumulation |
-| 5. Systematic maximization | 89.17% | 89.21% | 89.13% | Regime-aware optimization and multi-timescale structure unlocked major gains |
-| 6. Softmax allocation correction | 98.08% | 96.25% | 99.92% | The final breakthrough came from fixing allocation mechanics, not adding new data |
 
 ## Conclusion
 
 The results show that a dynamic, interpretable, long-only Bitcoin accumulation rule can improve meaningfully on uniform DCA under the same rolling-budget constraints.
 
-The main conclusion is that the final edge did not come from adding more signals. It came from keeping the signals that proved independent, removing redundant structure, and correcting the allocator itself.
+The main conclusion is that the final edge did not come from endlessly expanding the feature set. It came from keeping the signals that added independent information, removing redundant components such as MA200 when they no longer helped, strengthening the architecture around flow and demand, and finally correcting how conviction was translated into portfolio weights.

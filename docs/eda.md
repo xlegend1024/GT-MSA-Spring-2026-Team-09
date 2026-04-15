@@ -11,7 +11,7 @@ The exploratory work grouped candidate signals into four broad families.
 - **Demand / activity.** `AdrActCnt`, `TxCnt`, `HashRate`
 - **Market structure / external signals.** `price_vs_ma`, `halving_signal`, `poly_crypto`, `poly_trump`, `poly_us_affairs`
 
-These families summarize the main decision channels identified in EDA rather than the final model specification. At this stage, the goal was to decide which fields looked worth testing as separate sources of information for accumulation timing. Later modeling was responsible for sorting these candidates into three groups: fields that added independent value, fields that turned out to be redundant, and fields that looked interesting in exploration but did not justify retention in the final decision model.
+These families summarize the main decision channels identified in EDA rather than the final strategy specification. At this stage, the goal was to decide which fields looked worth testing as separate sources of information for accumulation timing. Later strategy was responsible for sorting these candidates into three groups: fields that added independent value, fields that turned out to be redundant, and fields that looked interesting in exploration but did not justify retention in the final decision strategy.
 
 ## Valuation Signal Evidence
 
@@ -31,7 +31,7 @@ Exchange-related features formed the second major group of promising signals. Ex
 
 *Figure-6. Exchange-flow behavior provided a second economic channel beyond valuation. It supported the idea that accumulation timing could improve when valuation signals were combined with interpretable supply-pressure information.*
 
-MA200 also looked useful at this stage. As a trend or regime lens, it helped separate below-trend accumulation periods from weaker accumulation periods and stronger momentum periods. That made it a reasonable early modeling candidate even though it was not ultimately retained in the final architecture.
+MA200 also looked useful at this stage. As a trend or regime lens, it helped separate below-trend accumulation periods from weaker accumulation periods and stronger momentum periods. That made it a reasonable early stratey candidate even though it was not ultimately retained in the final architecture.
 
 ![MA200 bull and bear regime overlay on long-horizon Bitcoin price](assets/figures/ma200-bull-bear-regime-overlay.png)
 
@@ -55,7 +55,7 @@ Activity-based signals were also promising in EDA, especially those tied to netw
 
 ## External Signal Evidence
 
-Polymarket-derived features were initially reasonable candidates in EDA because they offered a different kind of information from the on-chain set. Instead of valuation, flow, or network participation, they potentially captured event-sensitive market sentiment and political or macro attention. That made them interesting enough to test, especially as a secondary overlay on top of an already interpretable on-chain base model.
+Polymarket-derived features were initially reasonable candidates in EDA because they offered a different kind of information from the on-chain set. Instead of valuation, flow, or network participation, they potentially captured event-sensitive market sentiment and political or macro attention. That made them interesting enough to test, especially as a secondary overlay on top of an already interpretable on-chain base strategy.
 
 To evaluate this properly, we ran a baseline Polymarket overlay experiment using the same EDA-driven on-chain base and then added `crypto`, `trump`, `us_affairs`, and several combinations of those indexes.
 
@@ -70,20 +70,18 @@ To evaluate this properly, we ran a baseline Polymarket overlay experiment using
 | `base+trump+us_affairs` | 58.08% | 67.23% | +3.34% | Trump still weakens result |
 | `base+crypto+trump+us_affairs` | 58.38% | 67.70% | +3.33% | No useful synergy from combining all three |
 
-None of the overlay variants improved both score and mean excess over the base model. The `base+crypto+us_affairs` configuration slightly increased win rate, but its overall edge remained below the base model. Trump-related variants were consistently weaker, and combining all three Polymarket indexes did not create a stronger synergistic result.
+None of the overlay variants improved both score and mean excess over the base strategy. The `base+crypto+us_affairs` configuration slightly increased win rate, but its overall edge remained below the base strategy. Trump-related variants were consistently weaker, and combining all three Polymarket indexes did not create a stronger synergistic result.
 
-The working hypothesis was that Polymarket activity might act as a leading indicator for Bitcoin regime or price. EDA and the early overlay experiments did not support that view. In practice, Polymarket looked more reactive than predictive: BTC moves appeared to lead changes in Polymarket activity, not the reverse. Because these overlays did not improve the on-chain base in a meaningful way, Polymarket was excluded from the later decision model.
+The working hypothesis was that Polymarket activity might act as a leading indicator for Bitcoin regime or price. EDA and the early overlay experiments did not support that view. In practice, Polymarket looked more reactive than predictive: BTC moves appeared to lead changes in Polymarket activity, not the reverse. Because these overlays did not improve the on-chain base in a meaningful way, Polymarket was excluded from the later decision strategy.
 
 ![Polymarket crowd-sentiment view from the exploratory notebook](assets/figures/polymarket-crowd-sentiment.png)
 
-*Figure-10. Polymarket sentiment was visually interesting enough to justify testing, but exploratory plausibility alone was not enough. Later benchmark comparisons showed that these overlays did not improve the on-chain base model in a meaningful overall way.*
+*Figure-10. Polymarket sentiment was visually interesting enough to justify testing, but exploratory plausibility alone was not enough. Later benchmark comparisons showed that these overlays did not improve the on-chain base strategy in a meaningful overall way.*
 
 ## Redundancy And Overlap Evidence
 
-EDA showed that some of the strongest-looking signals were actually overlapping views of the same market condition. The clearest case was MA200 and valuation structure. Both helped identify favorable accumulation environments, but later tests showed that they overlapped enough that keeping both as direct model inputs reduced efficiency. This became an important lesson in the analysis. A signal can still be useful in EDA because it helps interpret market conditions, but that does not mean it should remain in the final model if another signal already captures most of the same decision value. This also helps explain why the model improved after simplification. The gains came not from keeping every promising-looking signal, but from retaining the inputs that contributed genuinely independent information.
+EDA showed that some of the strongest-looking signals were actually overlapping views of the same market condition. The clearest case was MA200 and valuation structure. Both helped identify favorable accumulation environments, but later tests showed that they overlapped enough that keeping both as direct strategy inputs reduced efficiency. This became an important lesson in the analysis. A signal can still be useful in EDA because it helps interpret market conditions, but that does not mean it should remain in the final strategy if another signal already captures most of the same decision value. This also helps explain why the strategy improved after simplification. The gains came not from keeping every promising-looking signal, but from retaining the inputs that contributed genuinely independent information.
 
 ## Final EDA Implications
 
-The main outcome of EDA was a practical shortlist for modeling. Valuation, flow, network demand, and cycle timing all looked strong enough to carry forward as candidate decision signals, while MA200 raised an early redundancy concern and Polymarket remained only an exploratory overlay.
-
-That is the handoff point to the Modeling Journey page. EDA answered what looked worth testing. Modeling then answered which candidates actually survived once they were forced into a common backtested allocation framework.
+The main outcome of EDA was a practical shortlist for strategy. Valuation, flow, network demand, and cycle timing all looked strong enough to carry forward as candidate decision signals, while MA200 raised an early redundancy concern and Polymarket remained only an exploratory overlay.
