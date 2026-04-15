@@ -37,7 +37,7 @@ MA200 also looked useful at this stage. As a trend or regime lens, it helped sep
 
 *Figure E-F3. MA200 regime shading provided an interpretable market-state view in exploration, which is why it remained a credible early candidate even before later simplification work.*
 
-Halving proximity also remained useful in EDA, not as a day-to-day trading signal, but as a cycle-timing input. In the context of Bitcoin accumulation, that was sufficient. The project did not need every signal to operate at the same horizon, only to contribute interpretable information that improved the timing of capital deployment across rolling windows.
+Halving proximity also remained useful in EDA, not as a day-to-day trading signal, but as a cycle-timing input. In the context of Bitcoin accumulation, that was sufficient. We did not need every signal to operate at the same horizon, only to contribute interpretable information that improved the timing of capital deployment across rolling windows.
 
 External signals also appeared interesting enough to test. In particular, Polymarket-derived indexes looked like plausible event-sensitive overlays during exploration, even though EDA alone could not establish whether they would add value beyond the on-chain base.
 
@@ -55,7 +55,7 @@ Activity-based signals were also promising in EDA, especially those tied to netw
 
 Polymarket-derived features were initially reasonable candidates in EDA because they offered a different kind of information from the on-chain set. Instead of valuation, flow, or network participation, they potentially captured event-sensitive market sentiment and political or macro attention. That made them interesting enough to test, especially as a secondary overlay on top of an already interpretable on-chain base model.
 
-To evaluate this properly, the team ran a baseline Polymarket overlay experiment using the same EDA-driven on-chain base and then added `crypto`, `trump`, `us_affairs`, and several combinations of those indexes.
+To evaluate this properly, we ran a baseline Polymarket overlay experiment using the same EDA-driven on-chain base and then added `crypto`, `trump`, `us_affairs`, and several combinations of those indexes.
 
 | Variant | Score | Win rate | Mean excess | Readout |
 | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ The working hypothesis was that Polymarket activity might act as a leading indic
 
 ## Redundancy And Overlap Evidence
 
-EDA showed that some of the strongest-looking signals were actually overlapping views of the same market condition. The clearest case was MA200 and valuation structure. Both helped identify favorable accumulation environments, but later tests showed that they overlapped enough that keeping both as direct model inputs reduced efficiency. This became an important lesson for the project. A signal can still be useful in EDA because it helps interpret market conditions, but that does not mean it should remain in the final model if another signal already captures most of the same decision value. This also helps explain why the model improved after simplification. The gains came not from keeping every promising-looking signal, but from retaining the inputs that contributed genuinely independent information.
+EDA showed that some of the strongest-looking signals were actually overlapping views of the same market condition. The clearest case was MA200 and valuation structure. Both helped identify favorable accumulation environments, but later tests showed that they overlapped enough that keeping both as direct model inputs reduced efficiency. This became an important lesson in the analysis. A signal can still be useful in EDA because it helps interpret market conditions, but that does not mean it should remain in the final model if another signal already captures most of the same decision value. This also helps explain why the model improved after simplification. The gains came not from keeping every promising-looking signal, but from retaining the inputs that contributed genuinely independent information.
 
 ## Final EDA Implications
 

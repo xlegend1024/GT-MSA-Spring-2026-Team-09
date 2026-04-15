@@ -16,6 +16,8 @@ dependencies = [
     "idna==3.11",
     "kiwisolver==1.4.9",
     "matplotlib==3.10.8",
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.6",
     "networkx>=3.6.1",
     "numpy==2.4.1",
     "openai>=2.24.0",
