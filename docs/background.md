@@ -20,7 +20,7 @@ The project is best understood as a decision-system problem. Predicting price is
 
 That is why the research focuses on identifying signals such as valuation, market regime, exchange-flow pressure, network demand, and cycle timing, then translating them into an interpretable rule for when to stay near baseline and when to increase conviction. These are the components of a decision system. They determine how evidence is converted into capital deployment within a rolling budget.
 
-![Signal confidence view combining sub-signals and forward-return behavior](assets/notebook-exports/images/jpark-eda/jpark-eda-cell011-out01.png)
+![Signal confidence view combining sub-signals and forward-return behavior](assets/figures/jpark-signal-confidence-view.png)
 
 *Figure B-F2. The project treats accumulation as a decision system: multiple sub-signals are transformed into a confidence score, and that score is judged by how it relates to future outcomes rather than by standalone price prediction claims.*
 

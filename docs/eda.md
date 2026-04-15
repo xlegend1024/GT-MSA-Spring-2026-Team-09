@@ -27,7 +27,7 @@ EDA showed that valuation matters, but not in exactly the same way all the time.
 
 Exchange-related features formed the second major group of promising signals. Exchange flow was attractive because it offered an interpretable bridge between on-chain behavior and market pressure. Sustained inflows to exchanges could be read as cautionary, while outflow-heavy periods aligned more naturally with accumulation behavior. This made flow information a good complement to valuation rather than a substitute for it.
 
-![Exchange net flow and supply-pressure evidence](assets\notebook-exports\images\jpark-eda\jpark-eda-cell012-out01.png)
+![Exchange net flow and supply-pressure evidence](assets/figures/jpark-exchange-flow-supply-pressure.png)
 
 *Figure E-F2. Exchange-flow behavior provided a second economic channel beyond valuation. It supported the idea that accumulation timing could improve when valuation signals were combined with interpretable supply-pressure information.*
 
@@ -41,7 +41,7 @@ Halving proximity also remained useful in EDA, not as a day-to-day trading signa
 
 External signals also appeared interesting enough to test. In particular, Polymarket-derived indexes looked like plausible event-sensitive overlays during exploration, even though EDA alone could not establish whether they would add value beyond the on-chain base.
 
-![Post-halving returns by time window](assets/notebook-exports/images/eda-executive/eda-executive-cell005-out01.png)
+![Post-halving returns by time window](assets/figures/post-halving-returns-by-window.png)
 
 *Figure E-F4. Post-halving return patterns suggested that cycle position could matter even if it was not a short-horizon trading signal. That made halving proximity a reasonable feature to carry forward as a cycle-timing hypothesis.*
 
@@ -49,7 +49,7 @@ External signals also appeared interesting enough to test. In particular, Polyma
 
 Activity-based signals were also promising in EDA, especially those tied to network participation. The intuition was straightforward: if demand for the network is strengthening, then that demand may contain incremental information beyond what valuation alone can capture. This theme later became important in Step 3, where active-address style information was the first additional feature family to generate a clear improvement after the baseline.
 
-![Active Address count, Has Rate, Transactions count trend over time](assets\notebook-exports\images\jpark-eda\jpark-eda-cell013-out01.png)
+![Active Address count, Has Rate, Transactions count trend over time](assets/figures/jpark-network-activity-trend.png)
 
 ## External Signal Evidence
 

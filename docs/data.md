@@ -27,5 +27,5 @@ The Polymarket data includes market metadata, token mappings, trades, odds histo
 
 One implementation detail matters for reproducibility: some Polymarket parquet timestamps are stored with incorrect units and can appear corrupted if read naively. The repository loaders correct these timestamp issues at runtime, so analysis should use the provided loaders rather than raw direct reads.
 
-![Top 20 Crypto Events by Volume](assets/notebook-exports/images/hshin-eda-polymarket/hshin-eda-polymarket-cell013-out01.png)
+![Top 20 Crypto Events by Volume](assets/figures/polymarket-top-crypto-events-by-volume.png)
 
