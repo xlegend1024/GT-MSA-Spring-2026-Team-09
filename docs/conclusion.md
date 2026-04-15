@@ -1,7 +1,9 @@
 # Conclusion
 
-As an outcome, we built an interpretable decision system for Bitcoin accumulation. It uses data-derived signals to allocate capital dynamically within a fixed budget and outperforms a simple rule such as uniform DCA without relying on black-box complexity.
+We built an interpretable Bitcoin accumulation strategy that outperformed uniform DCA under the same long-only, fixed-budget constraints. Across the six-step progression, the final strategy reached a 98.08% score, a 96.25% win rate, and a 99.92% exp-decay percentile, showing that dynamic allocation can improve accumulation quality without relying on black-box complexity.
 
-## Why It Worked
+This result did not come from endlessly adding more features. It came from identifying which signals added independent information, removing redundant structure when it stopped helping, and improving how conviction was translated into portfolio weights. The strongest late-stage gains came first from simplifying the architecture around flow and demand, and then from correcting the allocation mechanism itself.
 
-This result was possible because we first refined the data, then organized that information into interpretable signals, and finally converted those signals into a probabilistic allocation rule. In other words, the system worked not because it added more and more features, but because it linked clean data, meaningful signals, and disciplined capital allocation into one coherent decision process.
+## Final Takeaway
+
+The main lesson of the analysis is that Bitcoin accumulation can be improved as a decision-system problem rather than as a pure forecasting problem. Clean data, interpretable signals, and disciplined allocation logic mattered more than feature count. By the end of the study, the limiting factor was no longer signal discovery. It was the mechanism used to convert signal strength into capital deployment.

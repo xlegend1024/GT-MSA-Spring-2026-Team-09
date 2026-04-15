@@ -29,4 +29,4 @@ One implementation detail matters for reproducibility: some Polymarket parquet t
 
 ![Top 20 Crypto Events by Volume](assets/figures/polymarket-top-crypto-events-by-volume.png)
 
-**Figure-4. Polymarket event slug examples.*
+*Figure-4. Polymarket event slug examples.*

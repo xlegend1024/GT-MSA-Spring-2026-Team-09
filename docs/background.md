@@ -14,9 +14,15 @@ Uniform DCA is easy to explain. It makes no hidden judgment calls. Every day rec
 
 *Figure-1. Uniform DCA viewed against the best-possible and worst-possible accumulation outcomes within each rolling-window year. The left panel shows that uniform DCA usually sits well above the worst timing outcome, which helps explain why it is practical and robust. The right panel shows that it still captures only about one-third to mid-forty-percent of the feasible range in most years and remains materially below the oracle best, which is exactly why it is understandable and executable without being optimal.*
 
+## Evaluation Setup
+
+All strategies were tested under the same long-only, fixed-budget rolling backtest against uniform DCA. The task was intentionally constrained to interpretable, no-look-ahead allocation rules, so any improvement had to come from better timing and weight assignment rather than leverage, shorting, or unrealistic foresight.
+
+We evaluated each strategy with three complementary metrics: score, win rate, and exp-decay percentile. Score measures overall strategy quality as a combined evaluation metric. Win rate measures how often a strategy beat uniform DCA across rolling windows. Exp-decay percentile measures how highly a strategy ranked when stronger outcomes received more weight than weaker ones. Together, these capture overall quality, consistency against the benchmark, and relative standing across rolling windows rather than relying on a single headline number.
+
 ## Building a Decision System
 
-We approach the problem as a decision-system problem. Predicting price is only one possible route to better accumulation, and not necessarily the most reliable one. A useful accumulation model does not need to forecast exact returns or local tops and bottoms. It needs to transform available information into an allocation rule that decides when to stay near baseline and when to increase conviction.
+The next step is to treat that allocation problem as a decision-system problem. Predicting price is only one possible route to better accumulation, and not necessarily the most reliable one. A useful accumulation model does not need to forecast exact returns or local tops and bottoms. It needs to transform available information into an allocation rule that decides when to stay near baseline and when to increase conviction.
 
 That is why we focus on identifying signals such as valuation, market regime, exchange-flow pressure, network demand, and cycle timing, then translating them into an interpretable rule for when to stay near baseline and when to increase conviction. These are the components of a decision system. They determine how evidence is converted into capital deployment within a rolling budget.
 
