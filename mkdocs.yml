@@ -1,0 +1,35 @@
+site_name: Stacking Sats Research Docs
+site_description: Paper-style documentation for Team 09's six-step Bitcoin DCA research project
+site_url: https://xlegend1024.github.io/GT-MSA-Spring-2026-Team-09/
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: amber
+
+nav:
+  - Overview: overview.md
+  - Background: background.md
+  - Data: data.md
+  - EDA: eda.md
+  - Modeling Journey: modeling-journey.md
+  - Conclusion: conclusion.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true

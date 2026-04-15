@@ -221,3 +221,17 @@ tmp_capstone_data/
 *.jpeg
 *.gif
 *.webp
+
+# Generated docs asset metadata
+docs/assets/alias-manifest.json
+docs/assets/alias-map.csv
+docs/assets/notebook-exports/manifest.csv
+docs/assets/notebook-exports/manifest.json
+
+# Keep docs site images trackable for MkDocs / GitHub Pages
+!docs/assets/**/*.png
+!docs/assets/**/*.jpg
+!docs/assets/**/*.jpeg
+!docs/assets/**/*.gif
+!docs/assets/**/*.webp
+!docs/assets/**/*.svg
