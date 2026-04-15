@@ -13,6 +13,9 @@ We began with a baseline strategy and then refined it through experiments that a
 | 5. Systematic Maximization | 89.17% | 89.21% | 89.13% |
 | 6. Softmax Allocation  | 98.08% | 96.25% | 99.92% |
 
+![Strategy Performance comparison](assets/figures/modeling-score-vs-winrate-scatter.png)
+
+*Figure-11. The six-strategy progression moves from the lower-left baseline region toward the upper-right frontier, showing that both score and win rate improved as the strategy design was refined.*
 
 ### Strategy 1: Baseline Foundation
 
