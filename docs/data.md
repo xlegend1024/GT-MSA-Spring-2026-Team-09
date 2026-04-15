@@ -17,7 +17,7 @@ The modeling and backtesting workflow operates on a daily horizon across the rep
 
 ![Bitcoin price over time across the main evaluation period](assets/figures/btc-price-over-time.png)
 
-*Figure D-F1. A simple view of Bitcoin's daily USD price path over the main modeling horizon. This is the base price series on top of which the repository's CoinMetrics-derived signals are constructed.*
+*Figure-3. A simple view of Bitcoin's daily USD price path over the main modeling horizon. This is the base price series on top of which the repository's CoinMetrics-derived signals are constructed.*
 
 ### Polymarket
 
@@ -29,3 +29,4 @@ One implementation detail matters for reproducibility: some Polymarket parquet t
 
 ![Top 20 Crypto Events by Volume](assets/figures/polymarket-top-crypto-events-by-volume.png)
 
+**Figure-4. Polymarket event slug examples.*

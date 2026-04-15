@@ -15,7 +15,7 @@ We first built an interpretable baseline model and then refined it through exper
 
 ![Scatter plot of model score versus win rate across the six modeling steps](assets/figures/modeling-score-vs-winrate-scatter.png)
 
-*Figure M-F1. The six-step progression follows a clear path in score and win rate space. The final jump is not the result of random drift across experiments; it reflects a sequence of corrections that steadily improved both consistency and overall strategy quality, with the largest final gain arriving after allocator correction.*
+*Figure-11. The six-step progression follows a clear path in score and win rate space. The final jump is not the result of random drift across experiments; it reflects a sequence of corrections that steadily improved both consistency and overall strategy quality, with the largest final gain arriving after allocator correction.*
 
 ## Step 1. Establishing The Baseline
 
